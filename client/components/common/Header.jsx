@@ -1,12 +1,20 @@
 import React from 'react';
 
+import { Block, Search, SignIn } from './styles/Header.styles';
+
 const Header = () => {
   return (
-    <header>
-      <div>Logo</div>
-      <div>Input</div>
-      <div>SignIn</div>
-    </header>
+    <Block>
+      <div>
+        <div>Logo</div>
+        <div>
+          <Search placeholder='Search' />
+        </div>
+        <div>
+          <SignIn>Sign In</SignIn>
+        </div>
+      </div>
+    </Block>
   );
 };
 
