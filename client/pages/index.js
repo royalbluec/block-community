@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 
 import Header from '../components/common/Header';
 import Community from '../components/community/Community';
+import MainA from '../components/mainA/MainA';
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <Community />
+        <div style={{ display: 'flex' }}>
+          <MainA />
+        </div>
       </main>
 
       <footer className={styles.footer}>
