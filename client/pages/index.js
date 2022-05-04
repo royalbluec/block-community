@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css';
 import Header from '../components/common/Header';
 import Community from '../components/community/Community';
 import MainA from '../components/mainA/MainA';
+import MainB from '../components/mainB/MainB';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Community />
         <div style={{ display: 'flex' }}>
           <MainA />
+          <MainB />
         </div>
       </main>
 
