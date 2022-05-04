@@ -12,7 +12,8 @@ export const Block = styled.header`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 84.5rem;
+    /* max-width: 84.5rem; */
+    margin: 0 20rem;
     padding: 0 1rem;
   }
 
