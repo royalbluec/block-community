@@ -17,7 +17,7 @@ const Community = () => {
   return (
     <Block>
       {communityList.map((el, i) => (
-        <div>
+        <div key={el}>
           <a>
             {i === 0 ? (
               <button className='button__selected'>{el}</button>
