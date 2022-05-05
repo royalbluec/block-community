@@ -7,7 +7,7 @@ const Tab = () => {
   return (
     <Block>
       {tabList.map((el, idx) => (
-        <div>
+        <div key={el}>
           {idx === 0 ? (
             <div className='tab__selected' key={el}>
               {el}
