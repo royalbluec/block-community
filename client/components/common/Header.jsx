@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Block, Search, SignIn } from './styles/Header.styles';
 
+import Modal from '../modal/Modal';
+
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <Block>
       <div>
@@ -13,6 +17,11 @@ const Header = () => {
         <div>
           <SignIn>Sign In</SignIn>
         </div>
+
+        <button onClick={() => setShowModal(true)}>Open Modal</button>
+        <Modal onClose={() => setShowModal(false)} show={showModal}>
+          Hello from the modal!
+        </Modal>
       </div>
     </Block>
   );
