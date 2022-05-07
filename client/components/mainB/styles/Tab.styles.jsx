@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const Block = styled.div`
   display: flex;
   width: 100%;
+  margin-bottom: 1rem;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
   background-color: #ffffff;
