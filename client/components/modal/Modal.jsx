@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
+import SignIn from './SignIn';
+import Signup from './Signup';
 
-const Modal = ({ show, onClose, children }) => {
+const Modal = ({ show, onClose }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [isSignin, setIsSignin] = useState(true);
 
   const modalWrapperRef = useRef(null);
 
   useEffect(() => {
     setIsBrowser(true);
+    setIsSignin(true);
 
     if (show) {
       document.getElementById('__next').style = 'position: fixed';
@@ -28,6 +32,10 @@ const Modal = ({ show, onClose, children }) => {
     }
   };
 
+  const clickIsSignIn = () => {
+    setIsSignin((prevState) => !prevState);
+  };
+
   const modalContent = show ? (
     <StyledModalOverlay onClick={clickBackDrop}>
       <StyledModalWrapper ref={modalWrapperRef}>
@@ -37,7 +45,13 @@ const Modal = ({ show, onClose, children }) => {
               x
             </a>
           </StyledModalHeader>
-          <StyledModalBody>{children}</StyledModalBody>
+          <StyledModalBody>
+            {isSignin ? (
+              <SignIn clickIsSignIn={clickIsSignIn} />
+            ) : (
+              <Signup clickIsSignIn={clickIsSignIn} />
+            )}
+          </StyledModalBody>
         </StyledModal>
       </StyledModalWrapper>
     </StyledModalOverlay>

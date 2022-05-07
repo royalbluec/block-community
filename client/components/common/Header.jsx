@@ -15,10 +15,8 @@ const Header = () => {
           <Search placeholder='Search' />
         </div>
         <div>
-          <SignIn>Sign In</SignIn>
+          <SignIn onClick={() => setShowModal(true)}>Sign In</SignIn>
         </div>
-
-        <button onClick={() => setShowModal(true)}>Open Modal</button>
         <Modal onClose={() => setShowModal(false)} show={showModal}>
           Hello from the modal!
         </Modal>

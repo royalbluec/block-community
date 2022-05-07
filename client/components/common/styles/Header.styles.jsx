@@ -54,7 +54,7 @@ export const SignIn = styled.button`
   color: white;
 
   :hover {
-    background-color: rgba(49, 107, 208, 0.5);
+    opacity: 0.5;
     cursor: pointer;
   }
 `;
