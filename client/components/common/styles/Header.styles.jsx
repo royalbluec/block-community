@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 export const Block = styled.header`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+  max-width: 100%;
   height: 4rem;
   background-color: white;
 

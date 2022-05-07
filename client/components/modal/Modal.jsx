@@ -1,29 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 
 const Modal = ({ show, onClose, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
+  const modalWrapperRef = useRef(null);
+
   useEffect(() => {
     setIsBrowser(true);
-  }, []);
 
-  const handleCloseClick = (e) => {
+    if (show) {
+      document.getElementById('__next').style = 'position: fixed';
+    }
+  }, [show]);
+
+  const clickCloseButton = (e) => {
     e.preventDefault();
+    document.getElementById('__next').removeAttribute('style');
     onClose();
   };
 
+  const clickBackDrop = (e) => {
+    if (!modalWrapperRef?.current?.contains(e.target)) {
+      document.getElementById('__next').removeAttribute('style');
+      onClose();
+    }
+  };
+
   const modalContent = show ? (
-    <StyledModalOverlay>
-      <StyledModal>
-        <StyledModalHeader>
-          <a href='#' onClick={handleCloseClick}>
-            x
-          </a>
-        </StyledModalHeader>
-        <StyledModalBody>{children}</StyledModalBody>
-      </StyledModal>
+    <StyledModalOverlay onClick={clickBackDrop}>
+      <StyledModalWrapper ref={modalWrapperRef}>
+        <StyledModal>
+          <StyledModalHeader>
+            <a href='#' onClick={clickCloseButton}>
+              x
+            </a>
+          </StyledModalHeader>
+          <StyledModalBody>{children}</StyledModalBody>
+        </StyledModal>
+      </StyledModalWrapper>
     </StyledModalOverlay>
   ) : null;
 
@@ -47,16 +63,23 @@ const StyledModalHeader = styled.div`
   font-size: 25px;
 `;
 
+const StyledModalWrapper = styled.div`
+  width: 500px;
+  height: 600px;
+`;
+
 const StyledModal = styled.div`
   background: white;
   width: 500px;
   height: 600px;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
   padding: 15px;
 `;
 
 const StyledModalOverlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
