@@ -20,7 +20,7 @@ const Community = () => {
         <div key={el}>
           <a>
             {i === 0 ? (
-              <button className='button__selected'>{el}</button>
+              <button className='community__selected'>{el}</button>
             ) : (
               <button>{el}</button>
             )}

@@ -32,6 +32,12 @@ export const Item = styled.div`
   height: 4rem;
   padding: 0.625rem 0px;
 
+  & > div {
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
   & > button {
     width: 6rem;
     height: 2rem;
@@ -42,8 +48,12 @@ export const Item = styled.div`
     color: white;
 
     :hover {
-      background-color: rgba(49, 107, 208, 0.5);
       cursor: pointer;
+      background-color: rgba(49, 107, 208, 0.5);
     }
+  }
+
+  :hover {
+    cursor: pointer;
   }
 `;

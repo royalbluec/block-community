@@ -15,14 +15,36 @@ export const StyledBoardHeader = styled.div`
 
   & > div:first-of-type {
     margin-right: 0.75rem;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   & > div > div {
     display: flex;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  & > div > div:first-of-type {
+    font-weight: 600;
+
+    :hover {
+      text-decoration: underline;
+    }
   }
 
   & > div > div > div:first-of-type {
     margin-right: 0.75rem;
+    color: #316bd0;
+    font-weight: 600;
+
+    :hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -32,7 +54,7 @@ export const StyledBoardBody = styled.div`
     font-weight: 600;
   }
 
-  & > div:nth-child(2) {
+  & > div:nth-of-type(2) {
     margin: 1rem 0;
     word-wrap: break-word;
   }
@@ -42,6 +64,10 @@ export const StyledBoardBody = styled.div`
 
     & > div {
       margin-right: 1rem;
+
+      :hover {
+        cursor: pointer;
+      }
     }
   }
 `;
@@ -49,7 +75,7 @@ export const StyledBoardBody = styled.div`
 export const StyledBoardFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 
   & > div {
     padding: 0.25rem 0.75rem;

@@ -10,11 +10,13 @@ export const Block = styled.div`
 
   & > div > div {
     padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
     border-radius: 2rem;
     font-size: 1.2rem;
 
     :hover {
       cursor: pointer;
+      background-color: #f1f2f3;
     }
   }
 

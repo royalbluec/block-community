@@ -20,10 +20,12 @@ export const Block = styled.div`
 
     :hover {
       cursor: pointer;
+      background-color: #d5e1f6;
+      border: 1px solid #d5e1f6;
     }
   }
 
-  .button__selected {
+  .community__selected {
     border: 1px solid #316bd0;
     background-color: #d5e1f6;
     color: #316bd0;
