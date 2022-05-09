@@ -8,13 +8,15 @@ import Board from './Board';
 const MainB = () => {
   return (
     <Block>
-      <Create />
-      <Tab />
-      <Board />
-      <Board />
-      <Board />
-      <Board />
-      <Board />
+      <div>
+        <Create />
+        <Tab />
+        <Board />
+        <Board />
+        <Board />
+        <Board />
+        <Board />
+      </div>
     </Block>
   );
 };

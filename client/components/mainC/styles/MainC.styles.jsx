@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Block = styled.div`
-  width: 22rem;
+  flex: 1.5;
+  min-width: 360px;
 `;
