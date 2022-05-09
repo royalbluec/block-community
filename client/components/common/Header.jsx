@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Block, Search, SignIn } from './styles/Header.styles';
+import { HeaderWrapper, Search, SignIn } from './styles/Header.styles';
 
 import Modal from '../modal/Modal';
 
@@ -8,7 +8,7 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <Block>
+    <HeaderWrapper>
       <div>
         <div>Logo</div>
         <div>
@@ -21,7 +21,7 @@ const Header = () => {
           Hello from the modal!
         </Modal>
       </div>
-    </Block>
+    </HeaderWrapper>
   );
 };
 

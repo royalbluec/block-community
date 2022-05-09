@@ -5,6 +5,6 @@ export const Block = styled.div`
   min-width: 600px;
 
   & > div {
-    padding: 0 20px;
+    padding: 0 1rem;
   }
 `;

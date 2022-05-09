@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Block = styled.header`
-  display: flex;
-  justify-content: center;
+export const HeaderWrapper = styled.header`
   width: 100vw;
   max-width: 100%;
   height: 4rem;
@@ -12,15 +10,10 @@ export const Block = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    /* max-width: 84.5rem; */
-    margin: 0 20rem;
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
     padding: 0 1rem;
-  }
-
-  & > div > div {
-    display: flex;
-    justify-content: space-between;
   }
 `;
 
