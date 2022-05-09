@@ -14,6 +14,10 @@ export const HeaderWrapper = styled.header`
     height: 100%;
     margin: 0 auto;
     padding: 0 1rem;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -34,6 +38,10 @@ export const Search = styled.input`
 
   ::placeholder {
     color: #a6abb5;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
   }
 `;
 
