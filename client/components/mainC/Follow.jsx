@@ -1,20 +1,20 @@
 import React from 'react';
-import { Block, Item } from './styles/Follow.styles';
+import { StyledFollowWrapper, StyledFollowItem } from './styles/Follow.styles';
 
 const Follow = () => {
   const followList = ['paul', 'john', 'alice', 'chris', 'james'];
 
   return (
-    <Block>
-      <div>People to follow</div>
-      {followList.map((el) => (
-        <Item key={el}>
-          <div>{el}</div>
+    <StyledFollowWrapper>
+      <h2>People to follow</h2>
+      {followList.map((el, i) => (
+        <StyledFollowItem key={i}>
+          <a>{el}</a>
           <button>Follow</button>
-        </Item>
+        </StyledFollowItem>
       ))}
-      <div>See more</div>
-    </Block>
+      <a>See more</a>
+    </StyledFollowWrapper>
   );
 };
 

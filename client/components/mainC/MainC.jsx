@@ -1,15 +1,15 @@
 import React from 'react';
-import { Block } from './styles/mainC.styles';
+import { StyledMainCWrapper } from './styles/mainC.styles';
 
 import Join from './Join';
 import Follow from './Follow';
 
 const MainC = () => {
   return (
-    <Block>
+    <StyledMainCWrapper>
       <Join />
       <Follow />
-    </Block>
+    </StyledMainCWrapper>
   );
 };
 

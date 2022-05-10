@@ -21,10 +21,6 @@ const style = css`
   a {
     color: inherit;
     text-decoration: none;
-
-    :hover {
-      cursor: pointer;
-    }
   }
 
   h1,
@@ -54,6 +50,13 @@ const style = css`
   button {
     border: 0;
     outline: 0;
+  }
+
+  a,
+  button {
+    :hover {
+      cursor: pointer;
+    }
   }
 
   * {
