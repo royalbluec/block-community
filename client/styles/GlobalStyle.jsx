@@ -5,6 +5,7 @@ const style = css`
     --gray: #f1f2f3;
     --white: #ffffff;
     --blue: #316bd0;
+    --light-blue: #d5e1f6;
   }
 
   html,
@@ -20,6 +21,10 @@ const style = css`
   a {
     color: inherit;
     text-decoration: none;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   h1,

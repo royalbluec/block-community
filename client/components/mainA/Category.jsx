@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { CategoryWrapper } from './styles/Category.styles';
+import { StyledCategoryWrapper } from './styles/Category.styles';
 
 const Category = () => {
   const sideList = ['All', 'Discover', 'About', 'FAQ'];
 
   return (
-    <CategoryWrapper>
+    <StyledCategoryWrapper>
       {sideList.map((el, i) => (
         <a key={el}>
           {i === 0 ? (
@@ -16,7 +16,7 @@ const Category = () => {
           )}
         </a>
       ))}
-    </CategoryWrapper>
+    </StyledCategoryWrapper>
   );
 };
 

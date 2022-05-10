@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
-export const CategoryWrapper = styled.div`
+export const StyledCategoryWrapper = styled.div`
   padding: 1rem;
   border-radius: 1rem;
-  background-color: #ffffff;
+  background-color: var(--white);
   font-size: 1.2rem;
 
   & > a {
@@ -20,12 +20,11 @@ export const CategoryWrapper = styled.div`
     font-weight: 600;
 
     :hover {
-      cursor: pointer;
-      background-color: #d5e1f6;
+      background-color: var(--light-blue);
     }
   }
 
   .category__selected {
-    color: #316bd0;
+    color: var(--blue);
   }
 `;

@@ -1,12 +1,12 @@
 import React from 'react';
 import Category from './Category';
-import { Block } from './styles/MainA.styles';
+import { StyledMainAWrapper } from './styles/MainA.styles';
 
 const MainA = () => {
   return (
-    <Block>
+    <StyledMainAWrapper>
       <Category />
-    </Block>
+    </StyledMainAWrapper>
   );
 };
 
