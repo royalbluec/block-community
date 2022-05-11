@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { HeaderWrapper, Search, SignIn } from './styles/Header.styles';
 
@@ -12,6 +14,7 @@ const Header = () => {
       <div>
         <div>Logo</div>
         <div>
+          <FontAwesomeIcon icon={faMagnifyingGlass} className='search__icon' />
           <Search placeholder='Search' />
         </div>
         <div>
