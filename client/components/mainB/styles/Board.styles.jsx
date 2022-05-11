@@ -6,6 +6,12 @@ export const StyledBoardWrapper = styled.div`
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
   background-color: var(--white);
+
+  .board__icon {
+    color: var(--dark-gray);
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const StyledBoardHeader = styled.div`
@@ -74,6 +80,8 @@ export const StyledBoardFooter = styled.div`
   margin-top: 1rem;
 
   & > a {
+    display: flex;
+    align-items: center;
     padding: 0.25rem 0.75rem;
     border-radius: 0.25rem;
     font-size: 1.1rem;
@@ -81,6 +89,14 @@ export const StyledBoardFooter = styled.div`
 
     :hover {
       background-color: var(--light-blue);
+    }
+  }
+
+  & > a > div {
+    margin-left: 0.5rem;
+
+    @media (max-width: 480px) {
+      display: none;
     }
   }
 `;

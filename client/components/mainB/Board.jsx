@@ -1,4 +1,11 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHeart,
+  faComment,
+  faBookmark,
+  faShareFromSquare,
+} from '@fortawesome/free-regular-svg-icons';
 
 import {
   StyledBoardWrapper,
@@ -30,10 +37,22 @@ const Board = () => {
         </p>
       </StyledBoardBody>
       <StyledBoardFooter>
-        <a>Like</a>
-        <a>Comments</a>
-        <a>Save</a>
-        <a>Share</a>
+        <a>
+          <FontAwesomeIcon icon={faHeart} className='board__icon' />
+          <div>2</div>
+        </a>
+        <a>
+          <FontAwesomeIcon icon={faComment} className='board__icon' />
+          <div>Comments</div>
+        </a>
+        <a>
+          <FontAwesomeIcon icon={faBookmark} className='board__icon' />
+          <div>Save</div>
+        </a>
+        <a>
+          <FontAwesomeIcon icon={faShareFromSquare} className='board__icon' />
+          <div>Share</div>
+        </a>
       </StyledBoardFooter>
     </StyledBoardWrapper>
   );
