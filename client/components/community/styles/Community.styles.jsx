@@ -7,28 +7,28 @@ export const StyledCommunityWrapper = styled.ul`
   overflow-x: hidden;
 
   & > li {
-    height: 2.25rem rem;
+    height: 2.5rem;
     margin: 0rem 0.5rem;
   }
 
   & > li > a > button {
     height: 2.5rem;
     padding: 0 16px;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--white);
     border-radius: 1.25rem;
     font-size: 14px;
-    background-color: #ffffff;
+    background-color: var(--white);
 
     :hover {
       cursor: pointer;
-      border: 1px solid #316bd0;
-      background-color: #d5e1f6;
+      border: 1px solid var(--blue);
+      background-color: var(--light-blue);
     }
   }
 
   .community__selected {
-    border: 1px solid #316bd0;
-    color: #316bd0;
-    background-color: #d5e1f6;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    background-color: var(--light-blue);
   }
 `;

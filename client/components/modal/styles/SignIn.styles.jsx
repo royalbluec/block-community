@@ -32,8 +32,8 @@ export const StyledSignInButton = styled.button`
   border: none;
   border-radius: 0.75rem;
   font-size: 1.2rem;
-  color: white;
-  background-color: #316bd0;
+  color: var(--white);
+  background-color: var(--blue);
 
   &:hover {
     cursor: pointer;
@@ -49,7 +49,7 @@ export const StyledSignInFooter = styled.div`
   & > div {
     margin-left: 0.5rem;
     font-weight: 600;
-    color: #316bd0;
+    color: var(--blue);
 
     :hover {
       cursor: pointer;

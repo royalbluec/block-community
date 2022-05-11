@@ -17,11 +17,11 @@ export const StyledSignUpInput = styled.input`
   border: none;
   border-radius: 0.75rem;
   font-size: 1rem;
-  background-color: #f1f2f3;
+  background-color: var(--gray);
   outline: none;
 
   ::placeholder {
-    color: #a6abb5;
+    color: var(--dark-gray);
   }
 `;
 
@@ -32,8 +32,8 @@ export const StyledSignUpButton = styled.button`
   border: none;
   border-radius: 0.75rem;
   font-size: 1.2rem;
-  color: white;
-  background-color: #316bd0;
+  color: var(--white);
+  background-color: var(--blue);
 
   &:hover {
     cursor: pointer;
@@ -49,7 +49,7 @@ export const StyledSignUpFooter = styled.div`
   & > div {
     margin-left: 0.5rem;
     font-weight: 600;
-    color: #316bd0;
+    color: var(--blue);
 
     :hover {
       cursor: pointer;
