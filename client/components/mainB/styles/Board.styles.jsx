@@ -5,7 +5,7 @@ export const StyledBoardWrapper = styled.div`
   margin-bottom: 1rem;
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
-  background-color: #ffffff;
+  background-color: var(--white);
 `;
 
 export const StyledBoardHeader = styled.div`
@@ -13,62 +13,58 @@ export const StyledBoardHeader = styled.div`
   align-items: center;
   margin-bottom: 1rem;
 
-  & > div:first-of-type {
+  /* temp */
+  & > span {
     margin-right: 0.75rem;
 
     :hover {
       cursor: pointer;
+    }
+  }
+
+  & > div > p {
+    font-weight: 600;
+
+    :hover {
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
 
   & > div > div {
     display: flex;
+  }
+
+  & > div > div > p {
+    font-weight: 600;
+    color: var(--blue);
+    margin-right: 0.5rem;
 
     :hover {
       cursor: pointer;
-    }
-  }
-
-  & > div > div:first-of-type {
-    font-weight: 600;
-
-    :hover {
       text-decoration: underline;
     }
   }
 
-  & > div > div > div:first-of-type {
-    margin-right: 0.75rem;
-    color: #316bd0;
-    font-weight: 600;
+  & > div > div > span {
+    color: var(--dim-gray);
 
     :hover {
+      cursor: pointer;
       text-decoration: underline;
     }
   }
 `;
 
 export const StyledBoardBody = styled.div`
-  & > div:first-of-type {
+  & > h2 {
+    margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
   }
 
-  & > div:nth-of-type(2) {
-    margin: 1rem 0;
+  & > p {
     word-wrap: break-word;
-  }
-
-  & > div:last-of-type {
-    display: flex;
-
-    & > div {
-      margin-right: 1rem;
-
-      :hover {
-        cursor: pointer;
-      }
-    }
   }
 `;
 
@@ -77,14 +73,14 @@ export const StyledBoardFooter = styled.div`
   justify-content: space-between;
   margin-top: 1rem;
 
-  & > div {
+  & > a {
     padding: 0.25rem 0.75rem;
     border-radius: 0.25rem;
-    color: #6f7786;
+    font-size: 1.1rem;
+    color: var(--dim-gray);
 
     :hover {
-      cursor: pointer;
-      background-color: #d5e1f6;
+      background-color: var(--light-blue);
     }
   }
 `;

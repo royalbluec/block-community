@@ -3,6 +3,8 @@ import { Global, css } from '@emotion/react';
 const style = css`
   :root {
     --gray: #f1f2f3;
+    --dark-gray: #a6abb5;
+    --dim-gray: #6f7786;
     --white: #ffffff;
     --blue: #316bd0;
     --light-blue: #d5e1f6;

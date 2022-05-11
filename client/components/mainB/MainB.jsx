@@ -1,5 +1,5 @@
 import React from 'react';
-import { Block } from './styles/MainB.styles';
+import { StyledMainBWrapper } from './styles/MainB.styles';
 
 import Create from './Create';
 import Tab from './Tab';
@@ -7,7 +7,7 @@ import Board from './Board';
 
 const MainB = () => {
   return (
-    <Block>
+    <StyledMainBWrapper>
       <div>
         <Create />
         <Tab />
@@ -17,7 +17,7 @@ const MainB = () => {
         <Board />
         <Board />
       </div>
-    </Block>
+    </StyledMainBWrapper>
   );
 };
 

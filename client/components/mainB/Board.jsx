@@ -11,33 +11,29 @@ const Board = () => {
   return (
     <StyledBoardWrapper>
       <StyledBoardHeader>
-        <div>Profile</div>
+        {/* temp */}
+        <span>Profile</span>
         <div>
-          <div>name</div>
+          <p>name</p>
           <div>
-            <div>News</div>
-            <div>5 days ago</div>
+            <p>News</p>
+            <span>5 days ago</span>
           </div>
         </div>
       </StyledBoardHeader>
       <StyledBoardBody>
-        <div>Title</div>
-        <div>
+        <h2>Title</h2>
+        <p>
           Content Content Content Content Content Content Content Content
           Content Content Content Content Content Content Content Content
           Content Content Content Content Content Content Content Content
-        </div>
-        <div>
-          <div>Tag1</div>
-          <div>Tag2</div>
-          <div>Tag3</div>
-        </div>
+        </p>
       </StyledBoardBody>
       <StyledBoardFooter>
-        <div>Like</div>
-        <div>Comments</div>
-        <div>Save</div>
-        <div>Share</div>
+        <a>Like</a>
+        <a>Comments</a>
+        <a>Save</a>
+        <a>Share</a>
       </StyledBoardFooter>
     </StyledBoardWrapper>
   );

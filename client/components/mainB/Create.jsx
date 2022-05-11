@@ -1,11 +1,11 @@
 import React from 'react';
-import { Block } from './styles/Create.styles';
+import { StyledCreateWrapper } from './styles/Create.styles';
 
 const Create = () => {
   return (
-    <Block>
+    <StyledCreateWrapper>
       <div>Create a Post</div>
-    </Block>
+    </StyledCreateWrapper>
   );
 };
 

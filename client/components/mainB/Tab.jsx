@@ -1,24 +1,26 @@
 import React from 'react';
-import { Block } from './styles/Tab.styles';
+import { StyledTabWrapper, StyledTabItem } from './styles/Tab.styles';
 
 const Tab = () => {
   const tabList = ['Trending', 'New', 'Top', 'Discussed'];
 
   return (
-    <Block>
-      {tabList.map((el, idx) => (
-        <div key={el}>
-          {idx === 0 ? (
-            <div className='tab__selected' key={el}>
-              {el}
-            </div>
-          ) : (
-            <div key={el}>{el}</div>
-          )}
-        </div>
-      ))}
+    <StyledTabWrapper>
+      <ul>
+        {tabList.map((el, i) => (
+          <StyledTabItem key={i}>
+            {i === 0 ? (
+              <a className='tab__selected' key={el}>
+                {el}
+              </a>
+            ) : (
+              <a>{el}</a>
+            )}
+          </StyledTabItem>
+        ))}
+      </ul>
       <div></div>
-    </Block>
+    </StyledTabWrapper>
   );
 };
 
