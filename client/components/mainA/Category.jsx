@@ -8,7 +8,7 @@ const Category = () => {
   return (
     <StyledCategoryWrapper>
       {sideList.map((el, i) => (
-        <a key={el}>
+        <a key={i}>
           {i === 0 ? (
             <div className='category__selected'>{el}</div>
           ) : (

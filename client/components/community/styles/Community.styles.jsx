@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Block = styled.div`
+export const StyledCommunityWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 4rem;
@@ -15,21 +15,19 @@ export const Block = styled.div`
     padding: 0 16px;
     border: 1px solid #ffffff;
     border-radius: 1.25rem;
-    background-color: #ffffff;
     font-size: 14px;
+    background-color: #ffffff;
 
     :hover {
       cursor: pointer;
+      border: 1px solid #316bd0;
       background-color: #d5e1f6;
-      border: 1px solid #d5e1f6;
     }
   }
 
   .community__selected {
     border: 1px solid #316bd0;
-    background-color: #d5e1f6;
     color: #316bd0;
+    background-color: #d5e1f6;
   }
 `;
-
-export const Button = styled.button``;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Block } from './styles/Community.styles';
+import { StyledCommunityWrapper } from './styles/Community.styles';
 
 const Community = () => {
   const communityList = [
@@ -15,9 +15,9 @@ const Community = () => {
   ];
 
   return (
-    <Block>
+    <StyledCommunityWrapper>
       {communityList.map((el, i) => (
-        <div key={el}>
+        <div key={i}>
           <a>
             {i === 0 ? (
               <button className='community__selected'>{el}</button>
@@ -27,7 +27,7 @@ const Community = () => {
           </a>
         </div>
       ))}
-    </Block>
+    </StyledCommunityWrapper>
   );
 };
 
