@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 
+export const StyledSignInContainer = styled.div`
+  padding: 1rem 0;
+`;
+
 export const StyledSignInHeader = styled.h2`
+  margin-bottom: 1rem;
   font-size: 2rem;
 `;
 
@@ -11,9 +16,9 @@ export const StyledSignInInput = styled.input`
   padding: 0.5rem 0.75rem;
   border: none;
   border-radius: 0.75rem;
+  font-size: 1rem;
   background-color: #f1f2f3;
   outline: none;
-  font-size: 1rem;
 
   ::placeholder {
     color: #a6abb5;
@@ -26,9 +31,9 @@ export const StyledSignInButton = styled.button`
   margin-bottom: 1rem;
   border: none;
   border-radius: 0.75rem;
-  background-color: #316bd0;
   font-size: 1.2rem;
   color: white;
+  background-color: #316bd0;
 
   &:hover {
     cursor: pointer;

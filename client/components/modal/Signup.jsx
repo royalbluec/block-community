@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from 'react';
 
 import {
+  StyledSignUpContainer,
   StyledSignUpHeader,
   StyledSignUpInput,
   StyledSignUpButton,
   StyledSignUpFooter,
 } from './styles/SignUp.styles';
 
-const Signup = ({ clickIsSignIn }) => {
+const SignUp = ({ clickIsSignIn }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,12 +25,8 @@ const Signup = ({ clickIsSignIn }) => {
     setPassword(e.target.value);
   }, []);
 
-  console.log('signup name', name);
-  console.log('signup email', email);
-  console.log('signup password', password);
-
   return (
-    <div>
+    <StyledSignUpContainer>
       <StyledSignUpHeader>Sign Up</StyledSignUpHeader>
       <div>
         <div>
@@ -55,8 +52,8 @@ const Signup = ({ clickIsSignIn }) => {
       <StyledSignUpFooter>
         Already have an account? <div onClick={clickIsSignIn}>Sign In</div>
       </StyledSignUpFooter>
-    </div>
+    </StyledSignUpContainer>
   );
 };
 
-export default Signup;
+export default SignUp;

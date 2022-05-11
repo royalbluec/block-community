@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 
 import {
+  StyledSignInContainer,
   StyledSignInHeader,
   StyledSignInInput,
   StyledSignInButton,
@@ -19,11 +20,8 @@ const SignIn = ({ clickIsSignIn }) => {
     setPassword(e.target.value);
   }, []);
 
-  console.log('signin email', email);
-  console.log('signin password', password);
-
   return (
-    <div>
+    <StyledSignInContainer>
       <StyledSignInHeader>Sign In</StyledSignInHeader>
       <div>
         <div>
@@ -43,7 +41,7 @@ const SignIn = ({ clickIsSignIn }) => {
       <StyledSignInFooter>
         Not a member yet? <div onClick={clickIsSignIn}>Sign Up</div>
       </StyledSignInFooter>
-    </div>
+    </StyledSignInContainer>
   );
 };
 

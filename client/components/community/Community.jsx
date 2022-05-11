@@ -17,7 +17,7 @@ const Community = () => {
   return (
     <StyledCommunityWrapper>
       {communityList.map((el, i) => (
-        <div key={i}>
+        <li key={i}>
           <a>
             {i === 0 ? (
               <button className='community__selected'>{el}</button>
@@ -25,7 +25,7 @@ const Community = () => {
               <button>{el}</button>
             )}
           </a>
-        </div>
+        </li>
       ))}
     </StyledCommunityWrapper>
   );

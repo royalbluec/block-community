@@ -10,6 +10,10 @@ export const StyledTabWrapper = styled.div`
   & > ul {
     display: flex;
   }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const StyledTabItem = styled.li`

@@ -5,7 +5,7 @@ import { HeaderWrapper, Search, SignIn } from './styles/Header.styles';
 import Modal from '../modal/Modal';
 
 const Header = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <HeaderWrapper>
@@ -15,11 +15,9 @@ const Header = () => {
           <Search placeholder='Search' />
         </div>
         <div>
-          <SignIn onClick={() => setShowModal(true)}>Sign In</SignIn>
+          <SignIn onClick={() => setIsOpen(true)}>Sign In</SignIn>
         </div>
-        <Modal onClose={() => setShowModal(false)} show={showModal}>
-          Hello from the modal!
-        </Modal>
+        <Modal onClose={() => setIsOpen(false)} isOpen={isOpen} />
       </div>
     </HeaderWrapper>
   );
