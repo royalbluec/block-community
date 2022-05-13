@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const boardsSchema = new mongoose.Schema(
+const boardSchema = new mongoose.Schema(
   {
     userID: { type: String, required: true },
     title: { type: String, required: true },
@@ -8,7 +8,7 @@ const boardsSchema = new mongoose.Schema(
     count: { type: Number, default: 0 },
   },
   { timestamps: true },
-  { collection: 'boards-collection' }
+  { collection: 'board-collection' }
 );
 
-module.exports = mongoose.model('Boards', boardsSchema);
+module.exports = mongoose.model('Board', boardSchema);

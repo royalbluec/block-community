@@ -4,8 +4,8 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 
-const usersRouter = require('./routers/usersRouter');
-const boardsRouter = require('./routers/boardsRouter');
+const userRouter = require('./routers/userRouter');
+const boardRouter = require('./routers/boardRouter');
 
 const app = express();
 
@@ -19,8 +19,8 @@ app.use(
 
 app.use(express.json());
 
-app.use('/', usersRouter);
-app.use('/', boardsRouter);
+app.use('/', userRouter);
+app.use('/', boardRouter);
 
 mongoose
   .connect(process.env.MONGODB_URI, {

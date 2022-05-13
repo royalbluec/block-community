@@ -1,4 +1,4 @@
-const usersController = {
+const userController = {
   get: (req, res) => {
     res
       .status(200)
@@ -11,7 +11,7 @@ const usersController = {
   },
 };
 
-const usersDetailController = {
+const userDetailController = {
   get: (req, res) => {
     console.log(req.params.id);
     res.status(200).json({ success: true, message: '유저를 가져왔습니다' });
@@ -26,4 +26,4 @@ const usersDetailController = {
   },
 };
 
-module.exports = { usersController, usersDetailController };
+module.exports = { userController, userDetailController };

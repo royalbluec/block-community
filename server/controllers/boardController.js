@@ -1,4 +1,4 @@
-const boardsController = {
+const boardController = {
   get: (req, res) => {
     res
       .status(200)
@@ -11,7 +11,7 @@ const boardsController = {
   },
 };
 
-const boardsDetailController = {
+const boardDetailController = {
   get: (req, res) => {
     console.log(req.params.id);
     res.status(200).json({ success: true, message: '게시물을 가져왔습니다' });
@@ -26,4 +26,4 @@ const boardsDetailController = {
   },
 };
 
-module.exports = { boardsController, boardsDetailController };
+module.exports = { boardController, boardDetailController };
