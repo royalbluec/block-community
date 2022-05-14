@@ -77,7 +77,6 @@ const userDetailController = {
   put: async (req, res) => {
     const id = req.params.id;
     const { name, password } = req.body;
-    console.log(name, password);
 
     try {
       if (name && !password) {
@@ -85,7 +84,6 @@ const userDetailController = {
         const isNameDuplicated = await User.findOne({ name: name });
 
         if (isNameDuplicated) {
-          await User.findByIdAndUpdate(id, { name });
           return res.status(200).json({
             success: false,
             data: null,

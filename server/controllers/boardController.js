@@ -32,7 +32,7 @@ const boardController = {
         });
       } catch (e) {
         console.log(e);
-        return res.status(200).json({
+        return res.status(400).json({
           success: true,
           data: null,
           message: '새로운 게시물을 생성을 실패했습니다.',
@@ -43,17 +43,69 @@ const boardController = {
 };
 
 const boardDetailController = {
-  get: (req, res) => {
-    console.log(req.params.id);
-    res.status(200).json({ success: true, message: '게시물을 가져왔습니다' });
+  get: async (req, res) => {
+    const postID = req.params.id;
+    try {
+      const boardData = await Board.findOne({ _id: postID });
+
+      return res.status(200).json({
+        success: true,
+        data: boardData,
+        message: '게시물 데이터를 가져오는데 성공했습니다.',
+      });
+    } catch (e) {
+      return res.status(400).json({
+        success: true,
+        data: null,
+        message: '게시물 데이터를 가져오는데 실패했습니다.',
+      });
+    }
   },
-  put: (req, res) => {
-    console.log(req.params.id);
-    res.status(200).json({ success: true, message: '게시물을 수정했습니다' });
+  put: async (req, res) => {
+    const postID = req.params.id;
+    const { title, content } = req.body;
+
+    try {
+      if (title && content) {
+        await Board.findByIdAndUpdate(postID, { title });
+        return res.status(200).json({
+          success: true,
+          data: null,
+          message: '게시물 데이터를 수정하는데 성공했습니다.',
+        });
+      } else {
+        return res.status(400).json({
+          success: false,
+          data: null,
+          message: '잘못된 값을 입력했습니다.',
+        });
+      }
+    } catch (e) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: '게시물 데이터를 수정하는데 실패했습니다.',
+      });
+    }
   },
-  delete: (req, res) => {
-    console.log(req.params.id);
-    res.status(200).json({ success: true, message: '게시물을 삭제했습니다.' });
+  delete: async (req, res) => {
+    const postID = req.params.id;
+
+    try {
+      await Post.findByIdAndDelete(postID);
+
+      return res.status(200).json({
+        success: true,
+        data: null,
+        message: '게시물 데이터를 삭제하는데 성공했습니다.',
+      });
+    } catch (e) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: '게시물 데이터를 삭제하는데 실패했습니다.',
+      });
+    }
   },
 };
 
