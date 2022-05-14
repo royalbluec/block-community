@@ -55,17 +55,28 @@ const userController = {
 
 const userDetailController = {
   get: async (req, res) => {
+    const tokenID = req.tokenID;
     const id = req.params.id;
 
     try {
-      const { _id, email, name } = await User.findOne({ _id: id });
-      const userData = { id: _id.toString(), email, name };
+      if (id !== tokenID) {
+        return res.status(403).json({
+          success: false,
+          data: null,
+          message: '유저 데이터를 가져오는 권한이 없습니다.',
+        });
+      } else {
+        await User.findOne({ _id: id }).then((userInfo) => {
+          const { _id, email, name } = userInfo;
+          const userData = { id: _id.toString(), email, name };
 
-      return res.status(200).json({
-        success: true,
-        data: userData,
-        message: '유저 데이터를 가져오는데 성공했습니다.',
-      });
+          return res.status(200).json({
+            success: true,
+            data: userData,
+            message: '유저 데이터를 가져오는데 성공했습니다.',
+          });
+        });
+      }
     } catch (e) {
       return res.status(400).json({
         success: false,
@@ -75,41 +86,34 @@ const userDetailController = {
     }
   },
   put: async (req, res) => {
+    const tokenID = req.tokenID;
     const id = req.params.id;
-    const { name, password } = req.body;
+    const { password } = req.body;
 
     try {
-      if (name && !password) {
-        // 중복 이름 체크
-        const isNameDuplicated = await User.findOne({ name: name });
-
-        if (isNameDuplicated) {
-          return res.status(200).json({
-            success: false,
-            data: null,
-            message: '이미 사용중인 이름입니다.',
-          });
-        } else {
-          await User.findByIdAndUpdate(id, { name });
-          return res.status(200).json({
-            success: true,
-            data: null,
-            message: '유저 이름을 수정하는데 성공했습니다.',
-          });
-        }
-      } else if (!name && password) {
-        await User.findByIdAndUpdate(id, { password });
-        return res.status(200).json({
-          success: true,
-          data: null,
-          message: '유저 비밀번호를 수정하는데 성공했습니다.',
-        });
-      } else {
-        return res.status(400).json({
+      if (id !== tokenID) {
+        return res.status(403).json({
           success: false,
           data: null,
-          message: '잘못된 값을 입력했습니다.',
+          message: '유저 데이터를 수정하는 권한이 없습니다.',
         });
+      } else {
+        // password 규칙
+        if (!password) {
+          return res.status(400).json({
+            success: false,
+            data: null,
+            message: '새로운 비밀번호를 잘못 입력했습니다.',
+          });
+        } else {
+          await User.findByIdAndUpdate(id, { password }).then(() => {
+            return res.status(200).json({
+              success: true,
+              data: null,
+              message: '유저 데이터를 수정하는데 성공했습니다.',
+            });
+          });
+        }
       }
     } catch (e) {
       return res.status(400).json({
@@ -120,16 +124,25 @@ const userDetailController = {
     }
   },
   delete: async (req, res) => {
+    const tokenID = req.tokenID;
     const id = req.params.id;
 
     try {
-      await User.findByIdAndDelete(id);
-
-      return res.status(200).json({
-        success: true,
-        data: null,
-        message: '유저 데이터를 삭제하는데 성공했습니다.',
-      });
+      if (id !== tokenID) {
+        return res.status(403).json({
+          success: false,
+          data: null,
+          message: '유저 데이터를 삭제하는 권한이 없습니다.',
+        });
+      } else {
+        await User.findByIdAndDelete(id).then(() => {
+          return res.status(200).json({
+            success: true,
+            data: null,
+            message: '유저 데이터를 삭제하는데 성공했습니다.',
+          });
+        });
+      }
     } catch (e) {
       return res.status(400).json({
         success: false,

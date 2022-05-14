@@ -12,8 +12,8 @@ router.post('/v1/users', userController.post);
 
 router.get('/v1/users/:id', authChecker, userDetailController.get);
 
-router.put('/v1/users/:id', userDetailController.put);
+router.put('/v1/users/:id', authChecker, userDetailController.put);
 
-router.delete('/v1/users/:id', userDetailController.delete);
+router.delete('/v1/users/:id', authChecker, userDetailController.delete);
 
 module.exports = router;
