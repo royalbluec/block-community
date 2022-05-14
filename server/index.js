@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const userRouter = require('./routers/userRouter');
 const boardRouter = require('./routers/boardRouter');
+const authRouter = require('./routers/authRouter');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use('/', userRouter);
 app.use('/', boardRouter);
+app.use('/', authRouter);
 
 mongoose
   .connect(process.env.MONGODB_URI, {
