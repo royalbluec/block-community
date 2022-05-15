@@ -27,7 +27,7 @@ const userController = {
 
     // 유효한 회원정보인지 검증
     const regEmail = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*\.[a-zA-Z]{2,3}$/;
-    if (regEmail.test(email)) {
+    if (!regEmail.test(email)) {
       return res.status(400).json({
         success: false,
         data: null,
@@ -35,7 +35,7 @@ const userController = {
       });
     }
     const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$/;
-    if (regPassword.test(password)) {
+    if (!regPassword.test(password)) {
       return res.status(400).json({
         success: false,
         data: null,
@@ -43,7 +43,7 @@ const userController = {
       });
     }
     const regName = /^[0-9a-zA-Z]{2,8}/;
-    if (regName.test(name)) {
+    if (!regName.test(name)) {
       return res.status(400).json({
         success: false,
         data: null,
@@ -95,24 +95,25 @@ const userDetailController = {
     const id = req.params.id;
 
     try {
+      // 권한 검증
       if (id !== tokenID) {
         return res.status(403).json({
           success: false,
           data: null,
           message: '유저 데이터를 가져오는 권한이 없습니다.',
         });
-      } else {
-        await User.findOne({ _id: id }).then((userInfo) => {
-          const { _id, email, name } = userInfo;
-          const userData = { id: _id.toString(), email, name };
-
-          return res.status(200).json({
-            success: true,
-            data: userData,
-            message: '유저 데이터를 가져오는데 성공했습니다.',
-          });
-        });
       }
+
+      await User.findOne({ _id: id }).then((userInfo) => {
+        const { _id, email, name } = userInfo;
+        const userData = { id: _id.toString(), email, name };
+
+        return res.status(200).json({
+          success: true,
+          data: userData,
+          message: '유저 데이터를 가져오는데 성공했습니다.',
+        });
+      });
     } catch (e) {
       return res.status(400).json({
         success: false,
@@ -128,7 +129,7 @@ const userDetailController = {
 
     // 유효한 비밀번호인지 검증
     const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$/;
-    if (regPassword.test(password)) {
+    if (!regPassword.test(password)) {
       return res.status(400).json({
         success: false,
         data: null,
@@ -137,21 +138,22 @@ const userDetailController = {
     }
 
     try {
+      // 권한 검증
       if (id !== tokenID) {
         return res.status(403).json({
           success: false,
           data: null,
           message: '유저 데이터를 수정하는 권한이 없습니다.',
         });
-      } else {
-        await User.findByIdAndUpdate(id, { password }).then(() => {
-          return res.status(200).json({
-            success: true,
-            data: null,
-            message: '유저 데이터를 수정하는데 성공했습니다.',
-          });
-        });
       }
+
+      await User.findByIdAndUpdate(id, { password }).then(() => {
+        return res.status(200).json({
+          success: true,
+          data: null,
+          message: '유저 데이터를 수정하는데 성공했습니다.',
+        });
+      });
     } catch (e) {
       return res.status(400).json({
         success: false,
@@ -165,21 +167,22 @@ const userDetailController = {
     const id = req.params.id;
 
     try {
+      // 권한 검증
       if (id !== tokenID) {
         return res.status(403).json({
           success: false,
           data: null,
           message: '유저 데이터를 삭제하는 권한이 없습니다.',
         });
-      } else {
-        await User.findByIdAndDelete(id).then(() => {
-          return res.status(200).json({
-            success: true,
-            data: null,
-            message: '유저 데이터를 삭제하는데 성공했습니다.',
-          });
-        });
       }
+
+      await User.findByIdAndDelete(id).then(() => {
+        return res.status(200).json({
+          success: true,
+          data: null,
+          message: '유저 데이터를 삭제하는데 성공했습니다.',
+        });
+      });
     } catch (e) {
       return res.status(400).json({
         success: false,

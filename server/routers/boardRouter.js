@@ -12,8 +12,8 @@ router.post('/v1/boards', authChecker, boardController.post);
 
 router.get('/v1/boards/:id', boardDetailController.get);
 
-router.put('/v1/boards/:id', boardDetailController.put);
+router.put('/v1/boards/:id', authChecker, boardDetailController.put);
 
-router.delete('/v1/boards/:id', boardDetailController.delete);
+router.delete('/v1/boards/:id', authChecker, boardDetailController.delete);
 
 module.exports = router;

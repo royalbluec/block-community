@@ -23,6 +23,7 @@ const boardController = {
     const tokenID = req.tokenID;
     const { title, content } = req.body;
 
+    // 입력값 검증
     if (!title || !content) {
       res.status(400).json({
         success: false,
@@ -44,7 +45,6 @@ const boardController = {
         });
       });
     } catch (e) {
-      console.log(e);
       return res.status(400).json({
         success: true,
         data: null,
@@ -56,14 +56,15 @@ const boardController = {
 
 const boardDetailController = {
   get: async (req, res) => {
-    const postID = req.params.id;
-    try {
-      const boardData = await Board.findOne({ _id: postID });
+    const boardID = req.params.id;
 
-      return res.status(200).json({
-        success: true,
-        data: boardData,
-        message: '게시물 데이터를 가져오는데 성공했습니다.',
+    try {
+      await Board.findOne({ _id: boardID }).then((boardInfo) => {
+        return res.status(200).json({
+          success: true,
+          data: boardInfo,
+          message: '게시물 데이터를 가져오는데 성공했습니다.',
+        });
       });
     } catch (e) {
       return res.status(400).json({
@@ -74,24 +75,38 @@ const boardDetailController = {
     }
   },
   put: async (req, res) => {
-    const postID = req.params.id;
+    const tokenID = req.tokenID;
+    const boardID = req.params.id;
     const { title, content } = req.body;
 
+    // 입력된 값 검증
+    if (!title || !content) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: '잘못된 값을 입력했습니다.',
+      });
+    }
+
     try {
-      if (title && content) {
-        await Board.findByIdAndUpdate(postID, { title });
+      const boardInfo = await Board.findOne({ _id: boardID });
+
+      // 권한 검증
+      if (boardInfo.userID !== tokenID) {
+        return res.status(403).json({
+          success: false,
+          data: null,
+          message: '게시물 데이터를 수정하는데 권한이 없습니다.',
+        });
+      }
+
+      await Board.findByIdAndUpdate(boardID, { title, content }).then(() => {
         return res.status(200).json({
           success: true,
           data: null,
           message: '게시물 데이터를 수정하는데 성공했습니다.',
         });
-      } else {
-        return res.status(400).json({
-          success: false,
-          data: null,
-          message: '잘못된 값을 입력했습니다.',
-        });
-      }
+      });
     } catch (e) {
       return res.status(400).json({
         success: false,
@@ -101,15 +116,27 @@ const boardDetailController = {
     }
   },
   delete: async (req, res) => {
-    const postID = req.params.id;
+    const tokenID = req.tokenID;
+    const boardID = req.params.id;
 
     try {
-      await Post.findByIdAndDelete(postID);
+      const boardInfo = await Board.findOne({ _id: boardID });
 
-      return res.status(200).json({
-        success: true,
-        data: null,
-        message: '게시물 데이터를 삭제하는데 성공했습니다.',
+      // 권한 검증
+      if (boardInfo.userID !== tokenID) {
+        return res.status(403).json({
+          success: false,
+          data: null,
+          message: '게시물 데이터를 삭제하는데 권한이 없습니다.',
+        });
+      }
+
+      await Board.findByIdAndDelete(boardID).then(() => {
+        return res.status(200).json({
+          success: true,
+          data: null,
+          message: '게시물 데이터를 삭제하는데 성공했습니다.',
+        });
       });
     } catch (e) {
       return res.status(400).json({
