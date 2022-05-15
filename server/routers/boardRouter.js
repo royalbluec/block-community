@@ -1,13 +1,14 @@
 const express = require('express');
+const router = express.Router();
 const {
   boardController,
   boardDetailController,
 } = require('../controllers/boardController');
-const router = express.Router();
+const authChecker = require('../middlewares/authChecker');
 
 router.get('/v1/boards', boardController.get);
 
-router.post('/v1/boards', boardController.post);
+router.post('/v1/boards', authChecker, boardController.post);
 
 router.get('/v1/boards/:id', boardDetailController.get);
 
