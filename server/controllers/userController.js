@@ -26,11 +26,28 @@ const userController = {
     const { email, password, name } = req.body;
 
     // 유효한 회원정보인지 검증
-    if (!email || !password || !name) {
-      res.status(400).json({
+    const regEmail = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*\.[a-zA-Z]{2,3}$/;
+    if (regEmail.test(email)) {
+      return res.status(400).json({
         success: false,
         data: null,
-        message: '회원정보를 잘못 입력했습니다.',
+        message: '이메일을 잘못 입력했습니다.',
+      });
+    }
+    const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$/;
+    if (regPassword.test(password)) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: '비밀번호를 잘못 입력했습니다.',
+      });
+    }
+    const regName = /^[0-9a-zA-Z]{2,8}/;
+    if (regName.test(name)) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: '이름을 잘못 입력했습니다.',
       });
     }
 
@@ -110,11 +127,12 @@ const userDetailController = {
     const { password } = req.body;
 
     // 유효한 비밀번호인지 검증
-    if (!password) {
+    const regPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$/;
+    if (regPassword.test(password)) {
       return res.status(400).json({
         success: false,
         data: null,
-        message: '새로운 비밀번호를 잘못 입력했습니다.',
+        message: '비밀번호를 잘못 입력했습니다.',
       });
     }
 
