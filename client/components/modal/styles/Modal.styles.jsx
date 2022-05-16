@@ -15,6 +15,7 @@ export const StyledModalOverlay = styled.div`
 export const StyledModalWrapper = styled.div`
   background: var(--white);
   width: 400px;
+  height: 30rem;
   padding: 1rem;
   border-radius: 1rem;
 `;

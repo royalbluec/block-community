@@ -8,6 +8,7 @@ const style = css`
     --white: #ffffff;
     --blue: #316bd0;
     --light-blue: #d5e1f6;
+    --red: #e50914;
   }
 
   html,
