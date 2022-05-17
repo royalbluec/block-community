@@ -57,3 +57,31 @@ export const StyledSignInFooter = styled.div`
     }
   }
 `;
+
+export const StyledErrorMessage = styled.div`
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--white);
+  background-color: var(--red);
+  outline: none;
+
+  & > div {
+    margin-bottom: 0.2rem;
+  }
+
+  & > div:last-of-type {
+    margin: 0;
+  }
+`;
+
+export const StyledSuccessMessage = styled.div`
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-align: right;
+`;

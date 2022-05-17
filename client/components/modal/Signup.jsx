@@ -68,7 +68,6 @@ const SignUp = ({ clickIsSignIn }) => {
             name: name,
           }
         );
-
         setMessage(data.message);
       } catch (e) {
         setMessage(e.response.data.message);
