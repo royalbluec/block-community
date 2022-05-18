@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import {
@@ -11,12 +12,17 @@ import {
   StyledSuccessMessage,
 } from './styles/SignIn.styles';
 
+import { authActions } from '../../store/index';
+
 const SignIn = ({ clickIsSignIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [message, setMessage] = useState('');
+
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const changeEmail = useCallback((e) => {
     setEmail(e.target.value);
@@ -54,6 +60,9 @@ const SignIn = ({ clickIsSignIn }) => {
         );
         setMessage(data.message);
         // redux를 사용한 전역상태로 accessToken 관리
+        console.log(isAuthenticated);
+        dispatch(authActions.login());
+        console.log(isAuthenticated);
       } catch (e) {
         setMessage(e.response.data.message);
       }
