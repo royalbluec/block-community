@@ -9,4 +9,5 @@ const reducer = (state, action) => {
   }
   return combineReducers({ auth })(state, action);
 };
+
 export default reducer;
