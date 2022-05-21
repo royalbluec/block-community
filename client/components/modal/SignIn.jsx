@@ -12,7 +12,8 @@ import {
   StyledSuccessMessage,
 } from './styles/SignIn.styles';
 
-import { authActions } from '../../store/index';
+// import { authActions } from '../../store/index';
+import * as authActions from '../../store/modules/auth';
 
 const SignIn = ({ clickIsSignIn }) => {
   const [email, setEmail] = useState('');
@@ -59,6 +60,7 @@ const SignIn = ({ clickIsSignIn }) => {
           }
         );
         setMessage(data.message);
+        console.log(data.data);
         // redux를 사용한 전역상태로 accessToken 관리
         console.log(isAuthenticated);
         dispatch(authActions.login());
@@ -68,6 +70,8 @@ const SignIn = ({ clickIsSignIn }) => {
       }
     }
   }, [email, password]);
+
+  console.log('out', isAuthenticated);
 
   return (
     <StyledSignInContainer>

@@ -1,5 +1,6 @@
 import { GlobalStyle } from '../styles/GlobalStyle';
-import wrapper from '../store';
+// import wrapper from '../store';
+import { wrapper } from '../store';
 
 function MyApp({ Component, pageProps }) {
   return (
