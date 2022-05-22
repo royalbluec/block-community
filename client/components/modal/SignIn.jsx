@@ -12,7 +12,6 @@ import {
   StyledSuccessMessage,
 } from './styles/SignIn.styles';
 
-// import { authActions } from '../../store/index';
 import * as authActions from '../../store/modules/auth';
 
 const SignIn = ({ clickIsSignIn }) => {
@@ -35,7 +34,6 @@ const SignIn = ({ clickIsSignIn }) => {
 
   const clickButton = useCallback(async () => {
     // 유효한 회원정보인지 검증
-    console.log(email, password);
     const regEmail = /^[0-9a-zA-Z]*@[0-9a-zA-Z]*\.[a-zA-Z]{2,3}$/;
     if (!regEmail.test(email)) {
       setIsValidEmail(false);
@@ -60,18 +58,13 @@ const SignIn = ({ clickIsSignIn }) => {
           }
         );
         setMessage(data.message);
-        console.log(data.data);
-        // redux를 사용한 전역상태로 accessToken 관리
-        console.log(isAuthenticated);
-        dispatch(authActions.login());
-        console.log(isAuthenticated);
+        // redux-toolkit을 이용한 전역상태로 isAuth 및 accessToken 관리
+        dispatch(authActions.login({ accessToken: data.data }));
       } catch (e) {
         setMessage(e.response.data.message);
       }
     }
   }, [email, password]);
-
-  console.log('out', isAuthenticated);
 
   return (
     <StyledSignInContainer>
