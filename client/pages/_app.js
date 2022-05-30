@@ -1,5 +1,5 @@
 import { GlobalStyle } from '../styles/GlobalStyle';
-import { wrapper, store } from '../store';
+import { wrapper, store } from '../store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 

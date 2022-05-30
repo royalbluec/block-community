@@ -12,7 +12,7 @@ import {
   StyledSuccessMessage,
 } from './styles/SignIn.styles';
 
-import * as authActions from '../../store/modules/auth';
+import * as authActions from '../../store/features/authSlice';
 
 const SignIn = ({ clickIsSignIn }) => {
   const [email, setEmail] = useState('');
